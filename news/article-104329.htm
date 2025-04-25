@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://tizinode.github.io/news/article-104329.htm" />
+    <title>mysql数据库锁MDL锁的解释_在线工具</title>
+        <meta name="description" content="在我们系统中有一张表它的查询概率非常高。最近有个需求，需要对这个表增加一个字段，然而在增加字段的时候发现系统中有多个业务出现了超时操作，那么这个是什么原因导致的呢？经过查阅资料发现是数据库的MDL锁+" />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="梯子节点 机场订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://tizinode.github.io/news/article-104329.htm" />
+    <meta property="og:site_name" content="梯子节点 机场订阅中文站" />
+    <meta property="og:title" content="mysql数据库锁MDL锁的解释_在线工具" />
+    <meta property="og:image" content="https://tizinode.github.io/uploads/20240414/7f6d2b81afe0838f38efc0cf6c9a3c3a.webp" />
+        <meta property="og:release_date" content="2025-04-25T22:57:56" />
+    <meta property="og:updated_time" content="2025-04-25T22:57:56" />
+        <meta property="og:description" content="在我们系统中有一张表它的查询概率非常高。最近有个需求，需要对这个表增加一个字段，然而在增加字段的时候发现系统中有多个业务出现了超时操作，那么这个是什么原因导致的呢？经过查阅资料发现是数据库的MDL锁+" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="mysql数据库锁MDL锁的解释_在线工具">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6J70KCJC44"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6J70KCJC44');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="/assets/website/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">梯子节点</div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                    </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">mysql数据库锁MDL锁的解释_在线工具</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				</h1> <p>在我们系统中有一张表它的查询概率非常高。最近有个需求，需要对这个表增加一个字段，然而在增加字段的时候发现系统中有多个业务出现了超时操作，那么这个是什么原因导致的呢？经过查阅资料发现是数据库的<strong>MDL锁+事务导致</strong>的。</p> </h1> <p>MDL锁属于<strong>表级别的元数据锁</strong>。表级别锁分为数据锁和元数据锁，通常我们说的加锁一般指的是加的数据锁。跟数据锁一样，元数据锁也分读锁和读写锁。</p> <p>MDL不需要显示使用，在进行表操作时会自动加上。当对表进行增删改查时，会自动加上MDL读锁；当要对表进行加减字段的结构修改时，会自动加上MDL写锁。</p> <ul> <li>读锁不互斥，意味着可以多个线程同时对一张表进行增删改查的操作。</li> <li>写锁独占，进行结构修改前，要先等待其他所有的MDL锁释放了才能获取到MDL写锁。获取到写锁后，在写锁释放前，其他线程无法获取到MDL读锁和写锁。也就是说，修改一个表的结构过程中，会阻塞其他线程对表的操作。</li> </ul> </h1> <p>MDL锁的存在，其实是为了保证数据的一致性。想象一下，假如没有MDL锁，一个查询在遍历表数据的过程中，另外一个线程执行了<code>ALTER TABLE t DELETE COLUMN 'col_1'</code>把<code>col_1</code>这一列删掉了，那查询结果就乱了，结果中是否应该有这一列数据？</p> </h1> <p>✅ ：表示正常往下执行</p> <p>❌ ：表示卡住了，即无法往下执行。</p> <table> <thead> <tr> <th>事物一</th> <th>事物二</th> <th>事物三</th> </tr> </thead> <tbody> <tr> <td>start transaction;✅ 1️⃣</td> <td></td> <td></td> </tr> <tr> <td>select * from customer;✅2️⃣</td> <td>alter table customer add column_4 int null;❌3️⃣</td> <td></td> </tr> <tr> <td></td> <td></td> <td>select * from customer;❌4️⃣</td> </tr> <tr> <td>commit;✅5️⃣</td> <td>✅6️⃣</td> <td>✅7️⃣</td> </tr> </tbody> </table> <p><strong>解释：</strong></p> <p>步骤 1️⃣2️⃣正常执行。执行步骤2️⃣时，会申请表<code>customer</code>的<code>MDL的SHARED_READ锁</code>。</p> <p>步骤3️⃣会卡住，因为此时会申请表<code>customer</code>的<code>MDL的EXCLUSIVE锁</code>，但是事物一的事物没有提交，此时是无法申请到<code>EXCLUSIVE</code>锁，因为它们是互斥的。</p> <p>步骤4️⃣也会卡住，因为<code>EXCLUSIVE</code>锁和<code>SHARE_READ</code>锁是互斥的，且<code>EXCLUSIVE</code>锁的优先级更高，所以步骤4️⃣也会卡住。</p> <p>步骤5️⃣事物提交，释放表的<code>SHARE_READ</code>锁，之后就可以执行6️⃣和7️⃣的操作了。</p> <p>如果先执行事务二，在执行事务三，则是可以成功的，因为alter数据ddl语句，和事物无关。</p> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>下一个：<a href="/news/article-104330.htm">宠物领养数据统计软件（宠物领养软件下载）</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-25-free-v2ray.htm" title="梯子节点 | 4月25日21M/S|免费V2ray/Shadowrocket/SSR/Clash节点机场分享">梯子节点 | 4月25日21M/S|免费V2ray/Shadowrocket/SSR/Clash节点机场分享</a></li>
+                        <li class="py-2"><a href="/news/article-104330.htm" title="宠物领养数据统计软件（宠物领养软件下载）">宠物领养数据统计软件（宠物领养软件下载）</a></li>
+                        <li class="py-2"><a href="/news/article-104329.htm" title="mysql数据库锁MDL锁的解释_在线工具">mysql数据库锁MDL锁的解释_在线工具</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <p>
+                                梯子节点 机场订阅中文站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
