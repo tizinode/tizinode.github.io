@@ -1,4 +1,4 @@
-# 梯子节点 | 4月25日22M/S|免费V2ray/Clash/Shadowrocket/SSR节点机场分享  更新时间 2025-04-25 22:58:43
+# 梯子节点 | 4月25日22.6M/S|免费SSR/Shadowrocket/V2ray/Clash节点机场分享  更新时间 2025-04-25 23:02:38
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://tizinode.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
