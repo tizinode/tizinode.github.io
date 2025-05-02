@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://tizinode.github.io/news/article-108173.htm" />
+    <title>【小程序】微信小程序自定义导航栏及其封装</title>
+        <meta name="description" content="????????  ✨： 微信小程序自定义导航栏   ????：东非不开森的主页   ????: 因为很多东西来不及去做去看可是时间很快总是赶不上，所以要去成长呀????????   ????: 如有" />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="梯子节点 机场订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://tizinode.github.io/news/article-108173.htm" />
+    <meta property="og:site_name" content="梯子节点 机场订阅中文站" />
+    <meta property="og:title" content="【小程序】微信小程序自定义导航栏及其封装" />
+    <meta property="og:image" content="https://tizinode.github.io/uploads/20240414/f5d3b8e7640222ea26be6e2cccc9c393.webp" />
+        <meta property="og:release_date" content="2025-04-30T09:34:29" />
+    <meta property="og:updated_time" content="2025-04-30T09:34:29" />
+        <meta property="og:description" content="????????  ✨： 微信小程序自定义导航栏   ????：东非不开森的主页   ????: 因为很多东西来不及去做去看可是时间很快总是赶不上，所以要去成长呀????????   ????: 如有" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="【小程序】微信小程序自定义导航栏及其封装">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6J70KCJC44"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6J70KCJC44');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="/assets/website/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">梯子节点</div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                    </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">【小程序】微信小程序自定义导航栏及其封装</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <p>????????</p> <blockquote> <p>✨： 微信小程序自定义导航栏<br />  <br /> ????：东非不开森的主页<br />  <br /> ????: 因为很多东西来不及去做去看可是时间很快总是赶不上，所以要去成长呀????????<br />  <br /> ????: 如有错误或不足之处，希望可以指正，非常感谢????<br />  </p> </blockquote> <p>应用场景：我们在小程序中想要自定义导航栏（当然组件库更方便哈哈）</p> <div class="toc"> <h3>小程序自定义导航栏</h3> <ul> <li> <ul> <li>一、导航栏适配</li> <li> <ul> <li>1.1.在json文件里更改页面配置项</li> <li>1.2.导航栏适配每种机型</li> </ul> </li> <li>二、封装导航栏组件</li> <li> <ul> <li>2.1.wxml</li> <li>2.2.wxss</li> <li>2.3.js</li> <li>2.4.在页面中使用导航栏组件</li> <li>2.5.效果图</li> </ul> </li> </ul> </li> </ul> </div> <h2> 一、导航栏适配</h2> <h3> 1.1.在json文件里更改页面配置项</h3> <p>⭐⭐⭐<br />  <br /> 官方文档介绍的有：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/606e8e75d8fe062a02de3427cf7412eb.jpg" alt="【小程序】微信小程序自定义导航栏及其封装"></p> <p><code>"navigationStyle": "custom"</code><br /> 这样原本默认的导航栏就会消失了<br />  <br /> PS: <strong>如果是单页面需要就写在对应页面的json内，如果全局需要就写在app.josn内</strong><br />  <br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/d234917f9d0b168bfbd2b864c8c4cce2.jpg" alt="【小程序】微信小程序自定义导航栏及其封装"><br />  </p> <h3> 1.2.导航栏适配每种机型</h3> <p>⭐⭐⭐<br />  </p> <p>在<code>app.js</code> 里面获取statusbarHeight（这个就是每种机型的导航高度，我们需要获取并且动态的展示）<br />  <br /><code>wx.getSystemInfo</code>获取。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/00a51b6adc114dbc796152f9a29e36c5.jpg" alt="【小程序】微信小程序自定义导航栏及其封装"><br />  </p> <p>我们要在对应该导航组件的<code>js</code>文件里面进行获取</p> <ul> <li> <code>data</code>中定义一个数据</li> <li>在动态从<code>app.js</code>中获取</li> <li>将获取到的<code>statusBarHeight</code>，存储到<code>data</code>中</li> </ul> <p> </p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221229/f9c2739f7f95a224b851c91eb31c9434.jpg" alt="【小程序】微信小程序自定义导航栏及其封装"><br />  </p> <p>在<code>wxml</code>里面动态的使用该数据<br />  </p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221229/02baab9e069c57d88fee5ca2a2cca2be.jpg" alt="【小程序】微信小程序自定义导航栏及其封装"><br /> 这样机型适配就完成啦o(<em>￣︶￣</em>)o<br />  </p> <h2> 二、封装导航栏组件</h2> <p>⭐⭐⭐⭐⭐<br />  </p> <h3> 2.1.wxml</h3> <p> </p> <p>这里我们使用了插槽<br /> （可以看看插槽的内容）<br />  </p> <pre><code class="prism language-html"><span class="token comment">&lt;!--components/nav-bar/nav-bar.wxml--&gt;</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nav-bar<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>status<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token selector">height:</span> <span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span>statusHeight<span class="token punctuation">}</span><span class="token punctuation">}</span>px<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nav<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>left<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>slot<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>slot</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>left<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>slot</span><span class="token punctuation">&gt;</span></span>         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>default<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>image</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>icon<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/assets/images/icons/arrow-left.png<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>image</span><span class="token punctuation">&gt;</span></span>         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>center<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>slot<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>slot</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>center<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>slot</span><span class="token punctuation">&gt;</span></span>         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>default<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>           {<!-- -->{title}}         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>right<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>  </code></pre> <h3> 2.2.wxss</h3> <p>⭐⭐⭐<br />  </p> <ul> <li>这里主要控制导航栏显示的位置</li> <li>还有默认插槽用通过css3的伪类:empty，class="default"的view盒子默认的样式是display: none隐藏的，如果class="slot"的view盒子为空时，那么就会将class="default"的view盒子的样式设为display: flex（<strong>因为小程序是默认不显示默认插槽的</strong>）<br />  </li> </ul> <pre><code class="prism language-css"><span class="token comment">/* components/nav-bar/nav-bar.wxss */</span> <span class="token comment">/* 自定义导航 */</span> <span class="token selector">.nav</span> <span class="token punctuation">{<!-- --></span>   <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>   <span class="token property">height</span><span class="token punctuation">:</span> 44px<span class="token punctuation">;</span>   <span class="token property">color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span> <span class="token punctuation">}</span>  <span class="token selector">.left, .right, .center</span> <span class="token punctuation">{<!-- --></span>   <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>   <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>   <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span> <span class="token punctuation">}</span>  <span class="token selector">.nav .left, .nav .right</span> <span class="token punctuation">{<!-- --></span>   <span class="token property">width</span><span class="token punctuation">:</span> 120rpx<span class="token punctuation">;</span> <span class="token punctuation">}</span>  <span class="token selector">.nav .center</span> <span class="token punctuation">{<!-- --></span>   <span class="token property">flex</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span> <span class="token punctuation">}</span>  <span class="token comment">/* 控制内容显示 */</span> <span class="token selector">.left .icon</span> <span class="token punctuation">{<!-- --></span>   <span class="token property">width</span><span class="token punctuation">:</span> 40rpx<span class="token punctuation">;</span>   <span class="token property">height</span><span class="token punctuation">:</span> 40rpx<span class="token punctuation">;</span> <span class="token punctuation">}</span>  <span class="token selector">.default</span> <span class="token punctuation">{<!-- --></span>   <span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span> <span class="token punctuation">}</span>  <span class="token selector">.slot:empty + .default</span> <span class="token punctuation">{<!-- --></span>   <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span> <span class="token punctuation">}</span>  </code></pre> <h3> 2.3.js</h3> <p> </p> <ul> <li>在properties下设置标题</li> <li>在options开启多个插槽</li> </ul> <pre><code class="prism language-javascript"><span class="token comment">// components/nav-bar/nav-bar.js</span>  <span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">getApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>   <span class="token literal-property property">options</span><span class="token operator">:</span> <span class="token punctuation">{<!-- --></span>     <span class="token literal-property property">multipleSlots</span><span class="token operator">:</span> <span class="token boolean">true</span>   <span class="token punctuation">}</span><span class="token punctuation">,</span>   <span class="token literal-property property">properties</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span>     <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token punctuation">{<!-- --></span>       <span class="token literal-property property">type</span><span class="token operator">:</span> String<span class="token punctuation">,</span>       <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token string">"导航标签"</span>     <span class="token punctuation">}</span>   <span class="token punctuation">}</span><span class="token punctuation">,</span>   <span class="token literal-property property">data</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span>     <span class="token literal-property property">statusHeight</span><span class="token operator">:</span><span class="token number">20</span>   <span class="token punctuation">}</span><span class="token punctuation">,</span>   <span class="token literal-property property">lifetimes</span><span class="token operator">:</span> <span class="token punctuation">{<!-- --></span>     <span class="token function">attached</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>       <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">statusHeight</span><span class="token operator">:</span> app<span class="token punctuation">.</span>globalData<span class="token punctuation">.</span>statusHeight<span class="token punctuation">}</span><span class="token punctuation">)</span>     <span class="token punctuation">}</span>   <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> </code></pre> <h3> 2.4.在页面中使用导航栏组件</h3> <p>⭐⭐⭐<br />  <br /> 因为插槽的使用，这里就很方便了,如果添加内容，那么就会显示默认插槽<br />  <br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/35347b55b560684ddfd265d0d7d30a11.jpg" alt="【小程序】微信小程序自定义导航栏及其封装"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/b5f0018f9be231834e2e5ac0c9300e46.jpg" alt="【小程序】微信小程序自定义导航栏及其封装"></p> <h3> 2.5.效果图</h3> <p> <br /> 这就是大概的效果了，当然文字箭头这里都是可以自定义的hh<br />  <br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/a46d4c6eb8aea396e4f753e29acaa7fa.jpg" alt="【小程序】微信小程序自定义导航栏及其封装"><br /> &lt;(￣︶￣)↗[GO!]&lt;(￣︶￣)↗[GO!]</p> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-107411.htm">免费领养幼犬 免费领养幼犬法斗</a></p>
+                                        <p>下一个：<a href="/news/article-108176.htm">猫咪疫苗多少钱一针（猫咪3针疫苗一共多少元）</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-29-free-node-subscribe-links.htm" title="梯子节点 | 4月29日19.4M/S|免费Shadowrocket/Clash/V2ray/SSR节点机场分享">梯子节点 | 4月29日19.4M/S|免费Shadowrocket/Clash/V2ray/SSR节点机场分享</a></li>
+                        <li class="py-2"><a href="/news/article-105368.htm" title="Java 常见的限流算法详细分析并实现_java">Java 常见的限流算法详细分析并实现_java</a></li>
+                        <li class="py-2"><a href="/news/article-109826.htm" title="垃圾收集器与内存分配策略_在线工具">垃圾收集器与内存分配策略_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-108173.htm" title="【小程序】微信小程序自定义导航栏及其封装">【小程序】微信小程序自定义导航栏及其封装</a></li>
+                        <li class="py-2"><a href="/news/article-108982.htm" title="芭比堂宠物医院收费价目表沈阳（芭比堂宠物医院玉泉路总店）">芭比堂宠物医院收费价目表沈阳（芭比堂宠物医院玉泉路总店）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-28-free-node-subscribe-links.htm" title="梯子节点 | 4月28日21.8M/S|免费V2ray/Shadowrocket/Clash/SSR节点机场分享">梯子节点 | 4月28日21.8M/S|免费V2ray/Shadowrocket/Clash/SSR节点机场分享</a></li>
+                        <li class="py-2"><a href="/news/article-106185.htm" title="在获取数据作为输出的同时，如何在同一列上使用多个条件？">在获取数据作为输出的同时，如何在同一列上使用多个条件？</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-26-free-node-subscribe.htm" title="梯子节点 | 4月26日22M/S|免费V2ray/SSR/Clash/Shadowrocket节点机场分享">梯子节点 | 4月26日22M/S|免费V2ray/SSR/Clash/Shadowrocket节点机场分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-25-free-v2ray.htm" title="梯子节点 | 4月25日21M/S|免费V2ray/Shadowrocket/SSR/Clash节点机场分享">梯子节点 | 4月25日21M/S|免费V2ray/Shadowrocket/SSR/Clash节点机场分享</a></li>
+                        <li class="py-2"><a href="/news/article-105369.htm" title="在广州哪里可以领养猫（广州哪里可以领养小猫）">在广州哪里可以领养猫（广州哪里可以领养小猫）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <p>
+                                梯子节点 机场订阅中文站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

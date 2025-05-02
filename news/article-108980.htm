@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://tizinode.github.io/news/article-108980.htm" />
+    <title>linux信号量semaphore</title>
+        <meta name="description" content="只撂出三个函数：（头文件：#include&lt;semaphore.h&gt;&nbsp;） 1、sem_init()&nbsp; 原型：int&nbsp;sem_init(sem_t&nbsp;*" />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="梯子节点 机场订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://tizinode.github.io/news/article-108980.htm" />
+    <meta property="og:site_name" content="梯子节点 机场订阅中文站" />
+    <meta property="og:title" content="linux信号量semaphore" />
+    <meta property="og:image" content="https://tizinode.github.io/uploads/20240414/8d2ec24e2dbe6207ecfafbf85b82ddd6.webp" />
+        <meta property="og:release_date" content="2025-05-01T09:03:47" />
+    <meta property="og:updated_time" content="2025-05-01T09:03:47" />
+        <meta property="og:description" content="只撂出三个函数：（头文件：#include&lt;semaphore.h&gt;&nbsp;） 1、sem_init()&nbsp; 原型：int&nbsp;sem_init(sem_t&nbsp;*" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="linux信号量semaphore">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6J70KCJC44"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6J70KCJC44');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="/assets/website/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">梯子节点</div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                    </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">linux信号量semaphore</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="htmledit_views"> <p>只撂出三个函数：（头文件：<span style="color:#006600"><span class="preprocessor" style="margin:0px; padding:0px; border:none; font-family:Consolas,'Courier New',Courier,mono,serif; line-height:18px; background-color:rgb(245,250,226)">#include&lt;semaphore.h&gt;</span><span style="margin:0px; padding:0px; border:none; font-family:Consolas,'Courier New',Courier,mono,serif; line-height:18px; background-color:rgb(245,250,226)">&nbsp;</span></span>）</p> <p><span style="white-space:pre"></span>1、<span style="font-family:Arial; font-size:14px; line-height:26px">sem_init()&nbsp;</span></p> <p><span style="font-family:Arial; font-size:14px; line-height:26px"><span style="white-space:pre"></span>原型：<span class="datatypes" style="margin:0px; padding:0px; border:none; color:rgb(46,139,87); font-weight:bold; font-family:Consolas,'Courier New',Courier,mono,serif; line-height:18px; background-color:rgb(245,250,226)">int</span><span style="margin:0px; padding:0px; border:none; font-family:Consolas,'Courier New',Courier,mono,serif; line-height:18px; background-color:rgb(245,250,226)">&nbsp;sem_init(sem_t&nbsp;*sem,&nbsp;</span><span class="datatypes" style="margin:0px; padding:0px; border:none; color:rgb(46,139,87); font-weight:bold; font-family:Consolas,'Courier New',Courier,mono,serif; line-height:18px; background-color:rgb(245,250,226)">int</span><span style="margin:0px; padding:0px; border:none; font-family:Consolas,'Courier New',Courier,mono,serif; line-height:18px; background-color:rgb(245,250,226)">&nbsp;pshared,&nbsp;unsigned&nbsp;</span><span class="datatypes" style="margin:0px; padding:0px; border:none; color:rgb(46,139,87); font-weight:bold; font-family:Consolas,'Courier New',Courier,mono,serif; line-height:18px; background-color:rgb(245,250,226)">int</span><span style="margin:0px; padding:0px; border:none; font-family:Consolas,'Courier New',Courier,mono,serif; line-height:18px; background-color:rgb(245,250,226)">&nbsp;value);&nbsp;</span></span></p> <p><span style="font-family:Arial; font-size:14px; line-height:26px"><span style="margin:0px; padding:0px; border:none; font-family:Consolas,'Courier New',Courier,mono,serif; line-height:18px; background-color:rgb(245,250,226)"><span style="white-space:pre"></span>含义：<span style="font-family:Arial; font-size:14px; line-height:26px">初始化一个定位在 sem 的匿名信号量。value 参数指定信号量的初始值。此处只考虑进程内的线程共享的信号量，即<span style="font-family:Arial; font-size:14px; line-height:26px">&nbsp;pshared =0；</span></span></span></span></p> <p><span style="white-space:pre"></span>2、<span style="font-family:Arial; font-size:14px; line-height:26px">sem_wait()</span></p> <p><span style="font-family:Arial; font-size:14px; line-height:26px"><span style="white-space:pre"></span>原型：<span class="datatypes" style="margin:0px; padding:0px; border:none; color:rgb(46,139,87); font-weight:bold; font-family:Consolas,'Courier New',Courier,mono,serif; line-height:18px; background-color:rgb(245,250,226)">int</span><span style="margin:0px; padding:0px; border:none; font-family:Consolas,'Courier New',Courier,mono,serif; line-height:18px; background-color:rgb(245,250,226)">&nbsp;sem_wait(sem_t&nbsp;*&nbsp;sem);&nbsp;</span></span></p> <p><span style="font-family:Arial; font-size:14px; line-height:26px"><span style="margin:0px; padding:0px; border:none; font-family:Consolas,'Courier New',Courier,mono,serif; line-height:18px; background-color:rgb(245,250,226)"><span style="white-space:pre"></span>含义：信号量减1的原子操作，<span style="font-family:Arial; font-size:14px; line-height:26px">但它永远会先等待该信号量为一个非零值才开始做减法。<span style="font-family:Arial; font-size:14px; line-height:26px">也就是说，如果对一个值为2的信号量调用sem_wait(),<span style="white-space:pre"> </span>线程将会继续执行，这信号量的值将减到1。如果对一个值为0的信号量调用sem_wait()，这个函数就 会地等待直到有其它线程增加了这个<span style="white-space:pre"> </span>值使它不再是0为止。如果有两个线程都在sem_wait()中等待同一个信号量变成非零值，那么当它被第三个线程增加 一个“1”时，等待线程<span style="white-space:pre"> </span>中只有一个能够对信号量做减法并继续执行，另一个还将处于等待状态。</span></span></span></span></p> <p><span style="white-space:pre"></span>3、<span style="font-family:Arial; font-size:14px; line-height:26px">sem_post()</span></p> <p><span style="font-family:Arial; font-size:14px; line-height:26px"><span style="white-space:pre"></span>原型：<span class="datatypes" style="margin:0px; padding:0px; border:none; color:rgb(46,139,87); font-weight:bold; font-family:Consolas,'Courier New',Courier,mono,serif; line-height:18px; background-color:rgb(245,250,226)">int</span><span style="margin:0px; padding:0px; border:none; font-family:Consolas,'Courier New',Courier,mono,serif; line-height:18px; background-color:rgb(245,250,226)">&nbsp;sem_post(sem_t&nbsp;*&nbsp;sem);&nbsp;</span></span></p> <p><span style="font-family:Arial; font-size:14px; line-height:26px"><span style="margin:0px; padding:0px; border:none; font-family:Consolas,'Courier New',Courier,mono,serif; line-height:18px; background-color:rgb(245,250,226)"><span style="white-space:pre"></span>含义：<span style="font-family:Consolas,'Courier New',Courier,mono,serif; font-size:14px; line-height:18px; background-color:rgb(245,250,226)">信号量加1的原子操作。<span style="font-family:Arial; font-size:14px; line-height:26px">即同时对同一个信号量做加“1”操作的两个线程是不会冲突的；而同 时对同一个文件进行读、加和写操作的两<span style="white-space:pre"> </span>个程序就有可能会引起冲突。信号量的值永远会正确地加一个“2”－－因为有两个线程试图改变它。</span></span></span></span></p> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-108176.htm">猫咪疫苗多少钱一针（猫咪3针疫苗一共多少元）</a></p>
+                                        <p>下一个：<a href="/news/article-108982.htm">芭比堂宠物医院收费价目表沈阳（芭比堂宠物医院玉泉路总店）</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-104330.htm" title="宠物领养数据统计软件（宠物领养软件下载）">宠物领养数据统计软件（宠物领养软件下载）</a></li>
+                        <li class="py-2"><a href="/news/article-109821.htm" title="mysql 中插入百万条数据">mysql 中插入百万条数据</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-5-1-clash-v2ray-ss-ssr.htm" title="梯子节点 | 5月1日21.5M/S|免费V2ray/SSR/Shadowrocket/Clash节点机场分享">梯子节点 | 5月1日21.5M/S|免费V2ray/SSR/Shadowrocket/Clash节点机场分享</a></li>
+                        <li class="py-2"><a href="/news/article-104828.htm" title="宠物猫疫苗多久打一次（宠物猫疫苗间隔多久打一次）">宠物猫疫苗多久打一次（宠物猫疫苗间隔多久打一次）</a></li>
+                        <li class="py-2"><a href="/news/article-106185.htm" title="在获取数据作为输出的同时，如何在同一列上使用多个条件？">在获取数据作为输出的同时，如何在同一列上使用多个条件？</a></li>
+                        <li class="py-2"><a href="/news/article-107409.htm" title="卖宠物粮食的上市公司 卖宠物粮食的上市公司有哪些">卖宠物粮食的上市公司 卖宠物粮食的上市公司有哪些</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-26-free-node-subscribe.htm" title="梯子节点 | 4月26日22M/S|免费V2ray/SSR/Clash/Shadowrocket节点机场分享">梯子节点 | 4月26日22M/S|免费V2ray/SSR/Clash/Shadowrocket节点机场分享</a></li>
+                        <li class="py-2"><a href="/news/article-108980.htm" title="linux信号量semaphore">linux信号量semaphore</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-30-clash-v2ray-ss-ssr.htm" title="梯子节点 | 4月30日22.6M/S|免费Clash/SSR/V2ray/Shadowrocket节点机场分享">梯子节点 | 4月30日22.6M/S|免费Clash/SSR/V2ray/Shadowrocket节点机场分享</a></li>
+                        <li class="py-2"><a href="/news/article-106188.htm" title="宠物打完疫苗后多久检测抗体（宠物打完疫苗之后多久可以洗澡）">宠物打完疫苗后多久检测抗体（宠物打完疫苗之后多久可以洗澡）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <p>
+                                梯子节点 机场订阅中文站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
