@@ -1,4 +1,4 @@
-# 梯子节点 | 6月26日18.9M/S|免费SSR/Clash/V2ray/Shadowrocket节点机场分享  更新时间 2025-06-26 09:24:10
+# 梯子节点 | 7月4日18.7M/S|免费Clash/Shadowrocket/V2ray/SSR节点机场分享  更新时间 2025-07-04 15:09:45
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://tizinode.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://tizinode.github.io/uploads/2025/06/0-20250626.yaml
-- https://tizinode.github.io/uploads/2025/06/1-20250626.yaml
-- https://tizinode.github.io/uploads/2025/06/2-20250626.yaml
-- https://tizinode.github.io/uploads/2025/06/3-20250626.yaml
-- https://tizinode.github.io/uploads/2025/06/4-20250626.yaml
+- https://tizinode.github.io/uploads/2025/07/0-20250704.yaml
+- https://tizinode.github.io/uploads/2025/07/1-20250704.yaml
+- https://tizinode.github.io/uploads/2025/07/2-20250704.yaml
+- https://tizinode.github.io/uploads/2025/07/3-20250704.yaml
+- https://tizinode.github.io/uploads/2025/07/4-20250704.yaml
 
 ### V2ray订阅链接
 
-- https://tizinode.github.io/uploads/2025/06/0-20250626.txt
-- https://tizinode.github.io/uploads/2025/06/1-20250626.txt
-- https://tizinode.github.io/uploads/2025/06/2-20250626.txt
-- https://tizinode.github.io/uploads/2025/06/3-20250626.txt
-- https://tizinode.github.io/uploads/2025/06/4-20250626.txt
+- https://tizinode.github.io/uploads/2025/07/0-20250704.txt
+- https://tizinode.github.io/uploads/2025/07/1-20250704.txt
+- https://tizinode.github.io/uploads/2025/07/2-20250704.txt
+- https://tizinode.github.io/uploads/2025/07/3-20250704.txt
+- https://tizinode.github.io/uploads/2025/07/4-20250704.txt
 
 ### Sing-box订阅链接
 
-- https://tizinode.github.io/uploads/2025/06/20250626.json
+- https://tizinode.github.io/uploads/2025/07/20250704.json
 
 ## 更多clash节点订阅 ：
 
