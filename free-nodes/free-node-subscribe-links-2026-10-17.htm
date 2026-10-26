@@ -267,14 +267,9 @@ net.ipv4.tcp_congestion_control = bbr
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 全局代理与规则代理如何选择？</h5></div>
+    <div class="panel-heading"><h5>Hiddify Next 的用户管理可以分组吗？</h5></div>
     <div class="panel-body">
-        全局代理会将所有流量通过节点转发，适合游戏或全局科学上网；规则代理只针对指定应用、IP 或端口走节点，可优化带宽使用和访问效率，根据需求灵活选择模式。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 能运行在哪些设备上？</h5></div>
-    <div class="panel-body">
-        PassWall2 是基于 OpenWRT 的插件，只要路由器支持该固件，就能安装运行。常见型号如小米路由、斐讯、软路由都可以使用，通过 Web 界面操作，适合家庭网络使用场景。<hr />    </div>
+        支持用户分组管理，可为不同组设置独立带宽、流量配额和节点访问权限。分组管理便于大规模用户维护，确保每个组的网络资源合理分配，提升整体管理效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Sing-box 如何实现精确域名分流？</h5></div>
@@ -282,9 +277,24 @@ net.ipv4.tcp_congestion_control = bbr
         Sing-box 可以按域名设置分流规则，将不同流量发送到指定节点。结合策略组使用，可实现网页、视频和游戏流量精准分配，提高访问速度和网络稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>使用 Reality 协议后，客户端与服务端的密钥如何管理？</h5></div>
+    <div class="panel-body">
+        Reality 使用公私钥对进行认证，应生成唯一的公私钥对并妥善保存私钥，公钥可部署在服务端配置中。避免在多个服务共享同一密钥，定期轮换密钥并通过安全通道传输公钥以防泄露。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>PassWall2 能运行在哪些设备上？</h5></div>
+    <div class="panel-body">
+        PassWall2 是基于 OpenWRT 的插件，只要路由器支持该固件，就能安装运行。常见型号如小米路由、斐讯、软路由都可以使用，通过 Web 界面操作，适合家庭网络使用场景。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Shadowrocket 的节点测速结果如何优化网络体验？</h5></div>
     <div class="panel-body">
         Shadowrocket 测量节点延迟和丢包率，将延迟低的节点优先使用。结合策略组和分流规则，可提升网页浏览、视频播放和游戏的访问速度和稳定性，优化整体网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 全局代理与规则代理如何选择？</h5></div>
+    <div class="panel-body">
+        全局代理会将所有流量通过节点转发，适合游戏或全局科学上网；规则代理只针对指定应用、IP 或端口走节点，可优化带宽使用和访问效率，根据需求灵活选择模式。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VLESS + XTLS 对高延迟网络有哪些优化？</h5></div>
@@ -292,14 +302,9 @@ net.ipv4.tcp_congestion_control = bbr
         XTLS 模式减少握手和加密开销，适合高延迟或不稳定网络环境。结合策略组和节点切换，可提高网页浏览、视频播放和游戏的稳定性和流畅度，改善用户体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>使用 Reality 协议后，客户端与服务端的密钥如何管理？</h5></div>
+    <div class="panel-heading"><h5>WinXray 的多出口节点如何优化访问速度？</h5></div>
     <div class="panel-body">
-        Reality 使用公私钥对进行认证，应生成唯一的公私钥对并妥善保存私钥，公钥可部署在服务端配置中。避免在多个服务共享同一密钥，定期轮换密钥并通过安全通道传输公钥以防泄露。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 的用户管理可以分组吗？</h5></div>
-    <div class="panel-body">
-        支持用户分组管理，可为不同组设置独立带宽、流量配额和节点访问权限。分组管理便于大规模用户维护，确保每个组的网络资源合理分配，提升整体管理效率。<hr />    </div>
+        通过为不同流量类型设置不同出口节点，WinXray 可以自动选择延迟最低的节点处理请求。结合策略组，可提高网页访问、视频播放和游戏等应用的速度与稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 混淆方式如何提升抗封锁能力？</h5></div>
@@ -309,12 +314,7 @@ net.ipv4.tcp_congestion_control = bbr
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VLess + Reality 的优势主要体现在哪些方面？</h5></div>
     <div class="panel-body">
-        Reality 采用非传统 TLS 流量伪装方式，通过模拟目标网站证书与握手特征来隐藏代理特征，相较于普通 VLess + TLS 更难被识别。它还具备更高的性能与更少的明文特征，适合高安全需求环境。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 的多出口节点如何优化访问速度？</h5></div>
-    <div class="panel-body">
-        通过为不同流量类型设置不同出口节点，WinXray 可以自动选择延迟最低的节点处理请求。结合策略组，可提高网页访问、视频播放和游戏等应用的速度与稳定性。    </div>
+        Reality 采用非传统 TLS 流量伪装方式，通过模拟目标网站证书与握手特征来隐藏代理特征，相较于普通 VLess + TLS 更难被识别。它还具备更高的性能与更少的明文特征，适合高安全需求环境。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -346,11 +346,11 @@ net.ipv4.tcp_congestion_control = bbr
     <div class="panel-body">
         <div class="row">
             <div class="text-center">
-                <a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=register&code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">
+                <a href="javascript:;" class="js_to" data-url="https://xc1.luniu8.com/?code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">
                     <img src="/assets/website/img/G/xingchen.webp" class="avatar" alt="星辰机场">
                 </a>
                 <dl>
-                    <dt><a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=register&code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">星辰机场</a></dt>
+                    <dt><a href="javascript:;" class="js_to" data-url="https://xc1.luniu8.com/?code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">星辰机场</a></dt>
                     <dd>
                         <p>【包年送2个月】</p><p>1、购买入门版年付套餐额外送2个月，共14个月，只要99元！！！</p><p>2、购买“至尊天皇”年付套餐，额外送2个月，只要299元！！！</p><p>3、购买其他包月类套餐中的年付，同样送2个月！！！</p><p>错过要再等一年！！</p>                    </dd>
                 </dl>
@@ -364,16 +364,16 @@ net.ipv4.tcp_congestion_control = bbr
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-9-12-free-subscribe-node.htm" title="梯子节点 | 9月12日20.4M/S|免费Trojan节点/Clash节点/SSR节点/Singbox节点/V2ray节点/Shadowrocket节点节点机场分享">梯子节点 | 9月12日20.4M/S|免费Trojan节点/Clash节点/SSR节点/Singbox节点/V2ray节点/Shadowrocket节点节点机场分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-8-free-high-speed-nodes.htm" title="梯子节点 | 9月8日19.1M/S|免费Singbox节点/Clash节点/SSR节点/Trojan节点/Shadowrocket节点/V2ray节点节点机场分享">梯子节点 | 9月8日19.1M/S|免费Singbox节点/Clash节点/SSR节点/Trojan节点/Shadowrocket节点/V2ray节点节点机场分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-6-free-high-speed-nodes.htm" title="梯子节点 | 9月6日18.7M/S|免费Shadowrocket节点/V2ray节点/Clash节点/Singbox节点/SSR节点/Trojan节点节点机场分享">梯子节点 | 9月6日18.7M/S|免费Shadowrocket节点/V2ray节点/Clash节点/Singbox节点/SSR节点/Trojan节点节点机场分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-v2ray-ss-ssr-2026-9-19.htm" title="梯子节点 | 9月19日21.1M/S|免费Trojan节点/V2ray节点/SSR节点/Clash节点/Singbox节点/Shadowrocket节点节点机场分享">梯子节点 | 9月19日21.1M/S|免费Trojan节点/V2ray节点/SSR节点/Clash节点/Singbox节点/Shadowrocket节点节点机场分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-18-free-node-subscribe.htm" title="梯子节点 | 10月18日22.1M/S|免费Trojan节点/Singbox节点/V2ray节点/Clash节点/SSR节点/Shadowrocket节点节点机场分享">梯子节点 | 10月18日22.1M/S|免费Trojan节点/Singbox节点/V2ray节点/Clash节点/SSR节点/Shadowrocket节点节点机场分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-23.htm" title="梯子节点 | 9月23日21.8M/S|免费Clash节点/Shadowrocket节点/Singbox节点/Trojan节点/V2ray节点/SSR节点节点机场分享">梯子节点 | 9月23日21.8M/S|免费Clash节点/Shadowrocket节点/Singbox节点/Trojan节点/V2ray节点/SSR节点节点机场分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-v2ray-2026-9-27.htm" title="梯子节点 | 9月27日21.1M/S|免费Shadowrocket节点/V2ray节点/Singbox节点/Clash节点/SSR节点/Trojan节点节点机场分享">梯子节点 | 9月27日21.1M/S|免费Shadowrocket节点/V2ray节点/Singbox节点/Clash节点/SSR节点/Trojan节点节点机场分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-10-3.htm" title="梯子节点 | 10月3日19.8M/S|免费V2ray节点/Shadowrocket节点/Trojan节点/SSR节点/Singbox节点/Clash节点节点机场分享">梯子节点 | 10月3日19.8M/S|免费V2ray节点/Shadowrocket节点/Trojan节点/SSR节点/Singbox节点/Clash节点节点机场分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-v2ray-ss-ssr-2026-10-7.htm" title="梯子节点 | 10月7日22.7M/S|免费V2ray节点/SSR节点/Trojan节点/Singbox节点/Shadowrocket节点/Clash节点节点机场分享">梯子节点 | 10月7日22.7M/S|免费V2ray节点/SSR节点/Trojan节点/Singbox节点/Shadowrocket节点/Clash节点节点机场分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-6-free-high-speed-nodes.htm" title="梯子节点 | 10月6日18.3M/S|免费Shadowrocket节点/Clash节点/V2ray节点/Singbox节点/SSR节点/Trojan节点节点机场分享">梯子节点 | 10月6日18.3M/S|免费Shadowrocket节点/Clash节点/V2ray节点/Singbox节点/SSR节点/Trojan节点节点机场分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-10-free-node-subscribe.htm" title="梯子节点 | 10月10日22.6M/S|免费Shadowrocket节点/Clash节点/Singbox节点/SSR节点/Trojan节点/V2ray节点节点机场分享">梯子节点 | 10月10日22.6M/S|免费Shadowrocket节点/Clash节点/Singbox节点/SSR节点/Trojan节点/V2ray节点节点机场分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-v2ray-2026-10-25.htm" title="梯子节点 | 10月25日19.4M/S|免费SSR节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点/Trojan节点节点机场分享">梯子节点 | 10月25日19.4M/S|免费SSR节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点/Trojan节点节点机场分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-26-free-v2ray-subscribe.htm" title="梯子节点 | 10月26日18.9M/S|免费Clash节点/Trojan节点/V2ray节点/Singbox节点/SSR节点/Shadowrocket节点节点机场分享">梯子节点 | 10月26日18.9M/S|免费Clash节点/Trojan节点/V2ray节点/Singbox节点/SSR节点/Shadowrocket节点节点机场分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-14-free-v2ray-subscribe.htm" title="梯子节点 | 9月14日18.5M/S|免费Clash节点/Shadowrocket节点/SSR节点/Trojan节点/V2ray节点/Singbox节点节点机场分享">梯子节点 | 9月14日18.5M/S|免费Clash节点/Shadowrocket节点/SSR节点/Trojan节点/V2ray节点/Singbox节点节点机场分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-v2ray-ss-ssr-2026-9-3.htm" title="梯子节点 | 9月3日18.6M/S|免费V2ray节点/Singbox节点/Clash节点/Trojan节点/Shadowrocket节点/SSR节点节点机场分享">梯子节点 | 9月3日18.6M/S|免费V2ray节点/Singbox节点/Clash节点/Trojan节点/Shadowrocket节点/SSR节点节点机场分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-24-free-subscribe-node.htm" title="梯子节点 | 10月24日22.5M/S|免费Trojan节点/V2ray节点/Clash节点/Shadowrocket节点/SSR节点/Singbox节点节点机场分享">梯子节点 | 10月24日22.5M/S|免费Trojan节点/V2ray节点/Clash节点/Shadowrocket节点/SSR节点/Singbox节点节点机场分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-24-free-high-speed-nodes.htm" title="梯子节点 | 9月24日19.7M/S|免费Shadowrocket节点/Singbox节点/V2ray节点/Trojan节点/Clash节点/SSR节点节点机场分享">梯子节点 | 9月24日19.7M/S|免费Shadowrocket节点/Singbox节点/V2ray节点/Trojan节点/Clash节点/SSR节点节点机场分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-v2ray-2026-9-7.htm" title="梯子节点 | 9月7日20.5M/S|免费Trojan节点/Clash节点/SSR节点/Shadowrocket节点/Singbox节点/V2ray节点节点机场分享">梯子节点 | 9月7日20.5M/S|免费Trojan节点/Clash节点/SSR节点/Shadowrocket节点/Singbox节点/V2ray节点节点机场分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-22-node-share.htm" title="梯子节点 | 10月22日18.6M/S|免费Singbox节点/Shadowrocket节点/SSR节点/Clash节点/V2ray节点/Trojan节点节点机场分享">梯子节点 | 10月22日18.6M/S|免费Singbox节点/Shadowrocket节点/SSR节点/Clash节点/V2ray节点/Trojan节点节点机场分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-10-1.htm" title="梯子节点 | 10月1日21.8M/S|免费Singbox节点/SSR节点/Shadowrocket节点/V2ray节点/Trojan节点/Clash节点节点机场分享">梯子节点 | 10月1日21.8M/S|免费Singbox节点/SSR节点/Shadowrocket节点/V2ray节点/Trojan节点/Clash节点节点机场分享</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -385,7 +385,7 @@ net.ipv4.tcp_congestion_control = bbr
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
@@ -418,7 +418,7 @@ net.ipv4.tcp_congestion_control = bbr
                         <a href="/privacy.htm">隐私申明</a> |
                         <a href="/sitemap.xml">网站地图</a>
                     </p>
-                                        <div>特别推荐：<b><a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=register&code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">星辰机场</a></b> <p>【包年送2个月】</p><p>1、购买入门版年付套餐额外送2个月，共14个月，只要99元！！！</p><p>2、购买“至尊天皇”年付套餐，额外送2个月，只要299元！！！</p><p>3、购买其他包月类套餐中的年付，同样送2个月！！！</p><p>错过要再等一年！！</p></div>
+                                        <div>特别推荐：<b><a href="javascript:;" class="js_to" data-url="https://xc1.luniu8.com/?code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">星辰机场</a></b> <p>【包年送2个月】</p><p>1、购买入门版年付套餐额外送2个月，共14个月，只要99元！！！</p><p>2、购买“至尊天皇”年付套餐，额外送2个月，只要299元！！！</p><p>3、购买其他包月类套餐中的年付，同样送2个月！！！</p><p>错过要再等一年！！</p></div>
                                                 <p>
                                 梯子节点 机场订阅中文站 版权所有
                                 <br />
